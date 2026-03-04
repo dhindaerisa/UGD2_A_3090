@@ -1,0 +1,447 @@
+body
+{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+/* Pengaturan Foto Profil (Kucing) */
+.profile-pic {
+    width: 400px; 
+    height: auto;
+    border-radius: 20px; 
+    box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.1); 
+    object-fit: cover;
+    position: relative; /* Menambah kepastian posisi */
+    z-index: 11; /* Lebih tinggi lagi dari section-right */
+}
+/* Pengaturan Teks Nama */
+.name-title {
+    font-size: 65px;
+    font-weight: 900;
+    color: #000;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.intro {
+    font-size: 20px;
+    color: #101c3d;
+    font-weight: bold;
+}
+
+.sub-title {
+    font-size: 18px;
+    color: #101c3d;
+}
+
+/* Pengaturan Ikon Sosial Media */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-icons a {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px); /* Efek melompat sedikit saat kursor di atas ikon */
+}
+
+.social-icons img {
+    width: 30px; /* Ukuran ikon sosmed */
+    height: 30px;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    background-color: #E63946; /* Dasar merah agar tidak ada celah */
+}
+
+/* 1. Bagian Biru (Kiri) */
+.section-left {
+    background-color: #C5D89D; 
+    width: 42%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8%;
+    position: relative;
+    z-index: 0.5; /* Tinggi supaya teks About Me tidak tertutup */
+}
+
+/* 2. Garis Miring Navy (Tengah) */
+.section-mid {
+    background-color: #9CAB84; 
+    width: 20%;
+    height: 100%;
+    transform: skewX(-15deg); /* Membuat miring */
+    margin-left: -8%; 
+    margin-right: -8%; 
+    position: relative;
+    z-index: 2; /* Di bawah teks kiri dan di bawah bubble kanan */
+}
+
+/* 3. Bagian Biru Tua (Kanan) */
+.section-right {
+    background-color: #89986D; 
+    flex: 1; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0.5; /* HARUS LEBIH TINGGI dari section-mid (5) */
+}
+
+/* --- PERBAIKAN GLASS BOX SUPAYA DI DEPAN --- */
+.glass-box {
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* TRICK SUPAYA MENABRAK GARIS */
+    width: 100%; 
+    max-width: 550px;
+    margin-left: -180px; /* MENARIK KOTAK KE KIRI AGAR MENUTUPI GARIS NAVY */
+    
+    position: relative; 
+    z-index: 100; /* NILAI PALING TINGGI agar berada di lapisan terdepan */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* Pastikan ikon home dan nav punya posisi top yang SAMA */
+.home-icon { 
+    position: absolute; 
+    top: 30px; /* Jarak dari atas */
+    left: 30px; 
+    background: white; 
+    padding: 8px; 
+    border-radius: 10px; 
+    z-index: 200; 
+    width: 45px;
+    height: 45px; /* Sesuaikan tinggi agar seimbang */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav { 
+    position: absolute; 
+    top: 30px; /* Jarak dari atas HARUS SAMA dengan .home-icon */
+    right: 40px; 
+    z-index: 200; 
+    display: flex; 
+    align-items: center; /* KUNCI: Membuat teks dan tombol sejajar vertikal */
+    gap: 30px; /* Jarak antar menu diperlebar sedikit biar lega */
+    height: 45px; /* Tinggi disamakan dengan tinggi area ikon home */
+}
+
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 14px; 
+    line-height: 1; /* Menghilangkan spasi tambahan di bawah teks */
+}
+
+.btn-contact { 
+    background: white; 
+    color: black !important; 
+    padding: 10px 25px; 
+    border-radius: 25px; 
+    display: flex;
+    align-items: center;
+    height: 50%; /* Mengikuti tinggi nav agar sejajar */
+}
+
+/* Tipografi */
+.about-title { font-size: 60px; font-weight: 900; color: #000; margin-bottom: 10px; }
+.about-desc { font-size: 18px; color: #101c3d; font-weight: bold; max-width: 350px; }
+.who-am-i-title { font-size: 35px; font-weight: 900; margin-bottom: 15px; }
+.description { font-size: 15px; line-height: 1.6; margin-bottom: 15px; }
+.bio-details p { margin-bottom: 8px; font-size: 14px; }
+
+/* Container utama untuk area Skills */
+.skills-container {
+    width: 95%;
+    max-width: 650px;
+    margin-left: -120px; /* Menarik konten menabrak garis navy */
+    z-index: 100;
+    position: relative;
+}
+
+.skills-heading {
+    color: white;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* Membuat Grid 4 Kolom */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kotak ke samping */
+    gap: 15px; /* Jarak antar kotak */
+    margin-bottom: 50px;
+}
+
+/* Desain Kotak Ikon (Glassmorphism) */
+.skill-card {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px); /* Efek angkat saat mouse di atasnya */
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.skill-card img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 8px;
+}
+
+.skill-card p {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.porto-container {
+    width: 90%;
+    max-width: 800px;
+    margin-left: -150px;
+    z-index: 100;
+    position: relative;
+}
+
+.projects-heading {
+    color: white;
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.porto-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    /* Gunakan warna merah dengan transparansi (RGBA) */
+    background: #89986D(230, 57, 70, 0.4); 
+    
+    /* Efek Blur di belakang kartu */
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* Border tipis agar terlihat seperti kaca */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    
+    border-radius: 25px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    background: #89986D(230, 57, 70, 0.6); /* Sedikit lebih tebal saat di-hover */
+}
+
+.img-box {
+    height: 150px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.img-box img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-text {
+    padding: 15px;
+}
+
+.card-text h3 { margin: 0; font-size: 18px; }
+.card-text p { font-size: 12px; margin: 5px 0 15px 0; }
+
+.card-btns { display: flex; gap: 10px; }
+
+.btn-mini {
+    text-decoration: none;
+    color: white !important;
+    border: 2px solid white;
+    padding: 3px 15px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* --- FIX TOTAL HALAMAN CONTACT --- */
+
+/* 1. Wrapper Utama (Pastikan menutupi semua) */
+.contact-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100; /* Angka tinggi agar tidak tertutup background index */
+    overflow: hidden;
+}
+
+/* 2. Bagian Kiri (Biru Teal) */
+.bg-biru {
+    background-color: #C5D89D; /* Warna asdosmu */
+    width: 42%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    position: relative;
+    z-index: 0.5;
+}
+
+.content-left {
+    position: relative;
+}
+
+.title-big {
+    font-size: 65px;
+    font-weight: 900;
+    color: #000;
+    margin: 0 0 10px 0;
+}
+
+.desc-text {
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+    max-width: 350px;
+}
+
+/* 3. Garis Navy Tengah (Miring) */
+.bg-navy {
+    background-color: #9CAB84; /* Navy miring */
+    width: 20%;
+    height: 100%;
+    transform: skewX(-15deg);
+    margin-left: -8%;
+    margin-right: -8%;
+    position: relative;
+    z-index: 2; /* Harus lebih tinggi dari biru agar miringnya kelihatan */
+}
+
+/* 4. Bagian Kanan (Merah) */
+.bg-merah {
+    background-color: #89986D; /* Merah sesuai index */
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0.5; /* Paling depan untuk form */
+}
+
+/* 5. Kontainer Form (Agar tulisan tidak ke belakang) */
+.form-container {
+    width: 80%;
+    max-width: 550px;
+    position: relative;
+    z-index: 2;
+    color: rgb(237, 234, 234);
+}
+
+.send-title {
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* 6. Input (Hanya Garis Bawah) */
+.form-container input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white; /* Hanya garis bawah */
+    padding: 10px 0;
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    font-size: 16px;
+}
+
+/* 7. Textarea (KOTAK SESUAI REQUEST) */
+.form-container textarea {
+    width: 100%;
+    height: 120px;
+    background: transparent;
+    border: 2px solid white; /* KOTAK PENUH */
+    padding: 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    resize: none;
+    margin-bottom: 25px;
+}
+
+/* 8. Tombol Submit (Putih Lonjong) */
+.btn-submit {
+    width: 100%;
+    background: white;
+    color: black;
+    border: none;
+    padding: 15px;
+    border-radius: 40px;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #f0f0f0;
+    transform: scale(1.02);
+}
+
+/* Placeholder agar terlihat */
+::placeholder {
+    color: rgb(255, 255, 255);
+}
